@@ -1,6 +1,18 @@
-<ul>
-  <li *ngFor="let post of posts">
-    <label>User Id: {{post.userId}}</label>
-    <div>{{post.content}}</div>
-  </li>
-</ul>
+<div class="container">
+
+  <div>
+    <label for = 'post'>New post:</label>
+    <textarea #newPost id="post"></textarea>
+    <button (click)="addNewPost(newPost.value)">Post</button>
+  </div>
+
+
+  <ul>
+    <li *ngFor="let post of posts">
+      <label>User Id: {{post.userId}}</label>
+      <div>{{post.content}}</div>
+    </li>
+  </ul>
+
+
+</div>
