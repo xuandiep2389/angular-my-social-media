@@ -62,4 +62,14 @@ export class PostService {
       .pipe(catchError(this.handleError<Post>('delete post')))
     
   }
+
+  //GET: get post form server
+  getPost(id: number): Observable<Post> {
+
+    const url = `${this.postsUrl}/${id}`;
+
+    return this.http.get<Post>(url)
+      .pipe(catchError(this.handleError<Post>(`get post id = ${id}`)))
+
+  }
 }
