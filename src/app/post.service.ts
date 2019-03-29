@@ -52,4 +52,14 @@ export class PostService {
       .pipe(catchError(this.handleError<Post>('add post')))
 
   }
+
+  //DELETE: delete a post from server
+  deletePost(post: Post | number): Observable<Post> {
+    const id = typeof post === 'number'? post: post.id;
+    const url = `${this.postsUrl}/${id}`;
+
+    return this.http.delete<Post>(url,httpOptions)
+      .pipe(catchError(this.handleError<Post>('delete post')))
+    
+  }
 }
