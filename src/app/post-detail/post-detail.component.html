@@ -8,7 +8,19 @@
     user id: {{post.userId}}
   </div>
 
-  <div>
+  <div *ngIf="edit === false">
     {{post.content}}
   </div>
+
+  <div *ngIf="edit === true">
+    <label>
+      <input [(ngModel)]="post.content"/>
+    </label>
+  </div>
+
+
+  <button (click)="goBack()">Back</button>
+  <button (click)="toggleEdit()">Edit post</button>
+  <button (click)="savePost()">Save</button>
+
 </div>

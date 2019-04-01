@@ -72,4 +72,11 @@ export class PostService {
       .pipe(catchError(this.handleError<Post>(`get post id = ${id}`)))
 
   }
+
+  //PATCH: update the post on the server
+  updatePost(post: Post): Observable<any> {
+    return this.http.patch(`${this.postsUrl}/${post.id}`, post, httpOptions).pipe(
+      catchError(this.handleError<any>('update post'))
+    )
+  }
 }
