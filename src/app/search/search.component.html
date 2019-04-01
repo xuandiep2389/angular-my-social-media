@@ -2,14 +2,17 @@
 
   <h5>Post search</h5>
 
-  <input #searchbox id="search-box" (input)="search(searchbox.value)" />
+  <div>
+    <input #searchbox id="search-box" [(ngModel)]="term" (input)="search(searchbox.value) " />
 
-  <ul>
-    <li *ngFor="let post of posts$ | async">
-      <a routerLink="/detail/{{post.id}}">
-        {{post.content}}
-      </a>
-    </li>
-  </ul>
+    <ul>
+      <li *ngFor="let post of posts$ | async">
+        <a routerLink="/detail/{{post.id}}">
+          {{post.content}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
 
 </div>

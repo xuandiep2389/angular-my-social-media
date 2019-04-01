@@ -13,8 +13,9 @@
   <div *ngFor="let post of posts" class="card">
     <div class="card-title">User Id: {{post.userId}}</div>
     <div class="card-content">{{post.content}}</div>
-    <div><button (click)="deletePost(post)">x</button>
+    <div>
       <button routerLink="/detail/{{post.id}}">view</button>
+      <button (click)="deletePost(post)">delete</button>
     </div>
   </div>
 
