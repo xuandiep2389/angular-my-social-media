@@ -7,12 +7,14 @@ import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import {FormsModule} from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

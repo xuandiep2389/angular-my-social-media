@@ -79,4 +79,16 @@ export class PostService {
       catchError(this.handleError<any>('update post'))
     )
   }
+
+  //GET posts whose content contains search terms
+  searchPost(term: string): Observable<Post[]> {
+    if (!term.trim()) {
+      //if not search term, return empty post array
+      return of([]);
+    }
+
+    return this.http.get<Post[]>(`${this.postsUrl}/?content=${term}`).pipe(
+      catchError(this.handleError<Post[]>('search post', []))
+    );
+  }
 }
