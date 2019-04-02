@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Post} from '../post';
 import {PostService} from '../post.service';
 
@@ -8,6 +8,8 @@ import {PostService} from '../post.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+
+  @ViewChild('newPost')newPost: ElementRef;
 
   posts: Post[];
 
@@ -28,8 +30,9 @@ export class PostsComponent implements OnInit {
     this.postService.addNewPost({ content } as Post)
       .subscribe(post => {
         this.posts.push(post)
-      })
-    
+      });
+    this.newPost.nativeElement.value='';
+
   }
 
   deletePost(post: Post): void {

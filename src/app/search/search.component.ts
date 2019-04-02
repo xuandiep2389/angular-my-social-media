@@ -25,4 +25,7 @@ export class SearchComponent implements OnInit {
     this.getPosts()
   }
 
+  //reset text area when submit
+
+
 }
