@@ -40,7 +40,6 @@ export class PostsComponent implements OnInit {
 
     //clear content in textarea when click post
     this.newPost.nativeElement.value = '';
-
   }
 
   deletePost(post: Post): void {

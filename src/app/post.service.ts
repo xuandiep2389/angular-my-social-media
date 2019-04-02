@@ -48,6 +48,7 @@ export class PostService {
 
   //POST: add a new post to the server
   addNewPost(post: Post): Observable<Post> {
+    post.createDay = new Date().toString();
     return this.http.post<Post>(this.postsUrl, post, httpOptions)
       .pipe(catchError(this.handleError<Post>('add post')))
 

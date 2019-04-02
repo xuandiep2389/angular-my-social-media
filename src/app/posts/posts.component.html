@@ -1,5 +1,4 @@
 <div class="container">
-
   <div>
     <div>
       <textarea #newPost id="post" cols="80" rows="4"></textarea>
@@ -12,6 +11,7 @@
 
   <div *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: p }" class="card">
     <div class="card-title">User Id: {{post.userId}}</div>
+    <div class="card-text">At: {{post.createDay | date :'medium'}}</div><br>
     <div class="card-content">{{post.content}}</div>
     <div>
       <button routerLink="/detail/{{post.id}}">view</button>
