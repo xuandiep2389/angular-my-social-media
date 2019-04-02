@@ -31,6 +31,8 @@ export class PostsComponent implements OnInit {
       .subscribe(post => {
         this.posts.push(post)
       });
+
+    //clear content in textarea when click post
     this.newPost.nativeElement.value='';
 
   }
