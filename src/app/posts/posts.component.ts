@@ -9,15 +9,19 @@ import {PostService} from '../post.service';
 })
 export class PostsComponent implements OnInit {
 
-  @ViewChild('newPost')newPost: ElementRef;
+  @ViewChild('newPost') newPost: ElementRef;
+
+  p: number = 1;
 
   posts: Post[];
+
 
   getPosts(): void {
     this.postService.getPosts().subscribe(data => this.posts = data);
   }
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService) {
+  }
 
   ngOnInit() {
     this.getPosts();
@@ -25,15 +29,17 @@ export class PostsComponent implements OnInit {
 
 
   addNewPost(content: string): void {
-    if (!content) {return;}
+    if (!content) {
+      return;
+    }
 
-    this.postService.addNewPost({ content } as Post)
+    this.postService.addNewPost({content} as Post)
       .subscribe(post => {
-        this.posts.push(post)
+        this.posts.push(post);
       });
 
     //clear content in textarea when click post
-    this.newPost.nativeElement.value='';
+    this.newPost.nativeElement.value = '';
 
   }
 

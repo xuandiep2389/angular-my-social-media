@@ -9,6 +9,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import {FormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
