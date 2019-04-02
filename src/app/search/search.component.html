@@ -3,10 +3,11 @@
   <h5>Post search</h5>
 
   <div>
-    <input #searchbox id="search-box" [(ngModel)]="term" (input)="search(searchbox.value) " />
 
-    <ul>
-      <li *ngFor="let post of posts$ | async">
+    <input [(ngModel)]="searchText"/>
+
+    <ul *ngIf="searchText">
+      <li *ngFor="let post of posts$ | filter: searchText">
         <a routerLink="/detail/{{post.id}}">
           {{post.content}}
         </a>

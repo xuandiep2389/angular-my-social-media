@@ -91,4 +91,16 @@ export class PostService {
       catchError(this.handleError<Post[]>('search post', []))
     );
   }
+
+  // // Get posts whose contains search term
+  // searchPosts(term: string): Observable<Post[]> {
+  //   if (!term.trim()) {
+  //     // if not search term, return empty post array
+  //     return of([]);
+  //   }
+  //
+  //   return this.http.get<Post[]>(this.postsUrl).pipe(
+  //     catchError(this.handleError<Post[]>('search post'))
+  //   );
+  // }
 }

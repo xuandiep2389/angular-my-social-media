@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable, Subject} from 'rxjs';
 import {Post} from '../post';
 import {PostService} from '../post.service';
-import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -11,28 +9,20 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 })
 export class SearchComponent implements OnInit {
 
-  posts$: Observable<Post[]>;
+  posts$: Post[];
 
-  private searchTerms = new Subject<String>();
+  searchText;
 
-  constructor(private postService: PostService) { }
+  getPosts(): void {
+    this.postService.getPosts().subscribe(data => this.posts$ = data);
+  }
+
+  constructor(private postService: PostService) {
+
+  }
 
   ngOnInit(): void {
-    this.posts$ = this.searchTerms.pipe(
-
-      //wait 300 ms after each keystroke  before considering the term
-      debounceTime(300),
-
-      //ignore new term if same as previous term
-      distinctUntilChanged(),
-
-      // switch to new search observable each time the term change
-      switchMap((term: string) => this.postService.searchPost(term)),
-    );
+    this.getPosts()
   }
 
-  //push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
 }
