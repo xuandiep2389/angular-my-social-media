@@ -8,8 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import {FormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component';
-import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule} from 'ng2-search-filter';
+import { NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

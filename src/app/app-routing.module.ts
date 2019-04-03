@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: 'posts', component: PostsComponent},
   { path: 'detail/:id', component: PostDetailComponent },
 
-
 ];
 
 @NgModule({
